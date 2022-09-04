@@ -6,7 +6,15 @@ const counterEl = document.querySelector('.counter');
 
 const freeCell = { x: 3, y: 3 };
 let tiles = [];
-let clickCounter = 0;
+const clickCounter = createCounter();
+
+function createCounter() {
+  let count = 0;
+  return {
+    up: () => ++count,
+    clear: () => (count = 0),
+  };
+}
 
 function createField() {
   for (let y = 0; y < 4; ++y) {
@@ -78,7 +86,7 @@ function tileClick(evt) {
       }
     });
     freeCell.x = targetPos.x;
-    incCounter();
+    addClick();
     if (checkVictory()) showWinnerPopup();
   }
 
@@ -90,7 +98,7 @@ function tileClick(evt) {
       }
     });
     freeCell.y = targetPos.y;
-    incCounter();
+    addClick();
     if (checkVictory()) showWinnerPopup();
   }
 }
@@ -113,7 +121,7 @@ function shuffleTiles() {
   const randomTileIndex = Math.floor(Math.random() * tiles.length);
   tiles[randomTileIndex].click();
   shuffleTiles.counter++;
-  resetCounter();
+  clearClicks();
   hideWinnerPopup();
   if (shuffleTiles.counter <= 400) {
     shuffleTiles();
@@ -121,13 +129,12 @@ function shuffleTiles() {
 }
 shuffleTiles.counter = 0;
 
-function incCounter() {
-  counterEl.innerHTML = ++clickCounter;
+function addClick() {
+  counterEl.innerHTML = clickCounter.up();
 }
 
-function resetCounter() {
-  clickCounter = 0;
-  counterEl.innerHTML = 0;
+function clearClicks() {
+  counterEl.innerHTML = clickCounter.clear();
 }
 
 function restartGame() {
@@ -136,7 +143,7 @@ function restartGame() {
   freeCell.y = 3;
   container.innerHTML = '';
   hideWinnerPopup();
-  resetCounter();
+  clearClicks();
   createField();
   createTiles();
 
