@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>15-puzzle game</title>
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="modal-winner" class="modal-winner">
+      Victory
+      <button class="modal-winner__button restart-btn">Play again</button>
+    </div>
+    <div class="field-info">
+      <div class="field-info__counter"><span class="counter">0</span> clicks</div>
+      <button class="field-info__button restart-btn">reset</button>
+    </div>
+    <div class="field"></div>
   </body>
 </html>

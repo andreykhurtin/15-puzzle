@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background: rgb(199, 199, 199);
+  color: white;
+  padding: 0 24px;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.field-info {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.field-info__button {
+  width: 80px;
+  height: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  box-shadow: none;
+  border-radius: 6px;
+  background-color: #e74f17;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.field-info__counter {
+  color: black;
+}
+
+.field {
+  width: 300px;
+  height: 300px;
+  background-color: #fff;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.field__cell {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  background-color: #ff851b;
+  border-radius: 6px;
+}
+
+.field__cell--null {
+  opacity: 0.3;
+}
+
+.field__cell--tile {
+  opacity: 1;
+  cursor: pointer;
+  z-index: 2;
+  transition: 0.3s all;
+}
+
+.modal-winner {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: rgba(26, 26, 26, 0.8);
+  z-index: 5;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.modal-winner__button {
+  width: 150px;
+  height: 50px;
+  text-transform: uppercase;
+  text-align: center;
+  box-shadow: none;
+  border-radius: 6px;
+  background-color: #ff851b;
+  cursor: pointer;
+  margin-top: 20px;
+  outline: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.modal-winner--show {
+  opacity: 1;
+  visibility: visible;
+}
